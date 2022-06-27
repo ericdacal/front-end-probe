@@ -1,0 +1,6 @@
+.listView{
+    display: grid;
+    grid-gap: 10%;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 5% 20% 20% 20%;
+}
