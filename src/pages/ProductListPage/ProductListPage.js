@@ -1,9 +1,8 @@
 import "./ProductListPage.css"
-import "./components/header/Header"
 import { getItemsFromAPI } from "../../utils/APIconnector";
-import Loader from "../General/Loader"
+import Loader from "../General/Loader/Loader"
 import ListView from "./components/ListView/ListView"
-import Header from "./components/header/Header";
+import Header from "../General/Header/Header"
 import { useEffect, useState } from "react";
 
 function ProductListPage() {

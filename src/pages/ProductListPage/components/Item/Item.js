@@ -11,9 +11,9 @@ function Item({id, model, imgUrl, price, brand}) {
   }
   return (
     <div className='item' onClick={itemDetails}>
-      <h2> {brand} </h2>
+      <h1> {brand} </h1>
       <h2> {model} </h2>
-      <h2> {price} </h2>
+      <h2> {price + '$'} </h2>
       <img className="imageRef" src={imgUrl}></img>
     </div>
   );

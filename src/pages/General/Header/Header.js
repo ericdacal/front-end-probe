@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../../../../logo.svg'
+import logo from '../../../logo.svg'
 import { Navbar, Container } from "react-bootstrap";
 
 export default function Header() {

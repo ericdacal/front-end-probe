@@ -2,6 +2,7 @@ import './ProductDetailsPage.css'
 import {useLocation} from 'react-router-dom';
 import { getItemDetail } from '../../utils/APIconnector';
 import { useEffect, useState } from 'react';
+import Header from '../General/Header/Header'
 
 
 
@@ -16,6 +17,7 @@ function ProductDetailsPage() {
   }, []);
   return (
     <div className='productDetail'>
+      <Header/>
       <img src={item.imgUrl}></img>    
     </div>
   );
