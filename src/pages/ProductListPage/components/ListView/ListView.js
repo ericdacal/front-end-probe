@@ -6,7 +6,7 @@ import Item from "../Item/Item";
 function ListView({itemList}) {
   let [items, setItems] = useState(itemList)
   let onSearchChange = (event) => {
-    items = itemList.filter(item => item.name.includes(event.target.value))
+    items = itemList.filter(item => (item.brand.includes(event.target.value) ||  (item.model.includes(event.target.value))))
     setItems(items)
   }
   return (
