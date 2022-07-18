@@ -3,6 +3,22 @@ function addOneHour (date) {
   return result
 }
 
+export function saveNumberOfProducts (numOfProduct) {
+  const toSave = {
+    num: numOfProduct
+  }
+  localStorage.setItem('num_products', JSON.stringify(toSave))
+}
+
+export function getNumberOfProducts () {
+  const numObj = localStorage.getItem('num_products')
+  if (!numObj) {
+    return null
+  }
+  const num = JSON.parse(numObj)
+  return num.num
+}
+
 export function saveItemsInLocalStorage (items) {
   const toSave = {
     items,

@@ -6,18 +6,24 @@ import Header from '../General/Header/Header'
 import Description from './components/Description/Description'
 import Actions from './components/Actions/Actions'
 import Loader from '../General/Loader/Loader'
+import { getNumberOfProducts, saveNumberOfProducts } from '../../utils/LocalStorage'
 
 function ProductDetailsPage () {
   const [isDataFetch, setDataFetch] = useState(true)
   const [isLoading, setLoading] = useState(true)
   const location = useLocation()
   const [item, setItem] = useState({})
+  const [itemCount, setItemCount] = useState(0)
   useEffect(() => {
     getItemDetailFromAPI(location.state.id)
       .then((item) => {
         setItem(item)
         setDataFetch(false)
       })
+    const result = getNumberOfProducts()
+    if (result == null) {
+      saveNumberOfProducts(0)
+    } else setItemCount(result)
   }, [])
   return (
     isDataFetch
@@ -26,7 +32,7 @@ function ProductDetailsPage () {
         )
       : (
     <div>
-      <Header page={1} itemCount={1}/>
+      <Header page={1} itemCount={itemCount}/>
       <div style={ { display: isLoading ? 'block' : 'none' } }>
         <Loader/>
       </div>
