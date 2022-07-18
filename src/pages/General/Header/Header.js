@@ -18,7 +18,7 @@ export default function Header ({ page, itemCount }) {
       <Container>
       <Navbar.Brand href="/">
             <img
-              src={require('../../../resources/logo-amazon.png')}
+              src={require('../../../resources/logo.png')}
               width="100px"
               height= "auto"
               className="d-inline-block align-top"
