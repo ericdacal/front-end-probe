@@ -1,3 +1,42 @@
 .productDetail {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    gap: 10%;
 }
+h1 {
+    margin-bottom: 6%;
+}
+
+table {
+    margin-bottom: 6%;
+
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .productDetail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+        margin-left: 10;
+        gap: 10%;
+    }
+}
+
+
+
+
+    
+ 
+
