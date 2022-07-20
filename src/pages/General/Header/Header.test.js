@@ -7,11 +7,10 @@ describe("Fuction to test Header component", () => {
 		page : 0,
 		itemCount: 1
 	}
-	it('should render with this brand and model', () => {
-		render(
-			<Header item={input}/>
-		);
-		expect(screen.getByText(1).toBeInTheDocument());
+	it('Should have an icon image loaded', async() => {
+		render(<Header page= {input.page} itemCount={input.itemCount} />);
+		const imgItems = await screen.findAllByRole("img");
+		expect(imgItems).toHaveLength(1)
 	});
 })
 
