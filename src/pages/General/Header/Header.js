@@ -33,7 +33,7 @@ export default function Header ({ page, itemCount }) {
           </Breadcrumb>
         </Navbar.Brand>
         <Navbar.Brand>
-          <Badge color='secondary' badgeContent={itemCount}>
+          <Badge overlap='rectangular' color='secondary' badgeContent={itemCount}>
             <ShoppingCartIcon />{''}
           </Badge>
         </Navbar.Brand>

@@ -5,7 +5,7 @@ import {
   useNavigate
 } from 'react-router-dom'
 import { addProductToCartFromAPI } from '../../../../utils/APIconnector'
-import { saveNumberOfProducts } from '../../../../utils/LocalStorage'
+import { getNumberOfProducts, saveNumberOfProducts } from '../../../../utils/LocalStorage'
 
 function Actions ({ item }) {
   const navigate = useNavigate()
@@ -21,10 +21,15 @@ function Actions ({ item }) {
     setSelection(selected)
   }
   function sendToCart () {
-    const response = addProductToCartFromAPI(item.id, selected[1], selected[0])
-    response.then((countItem) => {
-      saveNumberOfProducts(countItem.count)
-    })
+    const currentNumber = getNumberOfProducts()
+    if (currentNumber == null) {
+      const response = addProductToCartFromAPI(item.id, selected[1], selected[0])
+      response.then((countItem) => {
+        saveNumberOfProducts(countItem.count)
+      })
+    } else {
+      saveNumberOfProducts(currentNumber + 1)
+    }
     navigate('/')
   }
   return (

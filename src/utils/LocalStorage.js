@@ -5,7 +5,8 @@ function addOneHour (date) {
 
 export function saveNumberOfProducts (numOfProduct) {
   const toSave = {
-    num: numOfProduct
+    num: numOfProduct,
+    expiry: addOneHour(new Date())
   }
   localStorage.setItem('num_products', JSON.stringify(toSave))
 }
@@ -16,6 +17,11 @@ export function getNumberOfProducts () {
     return null
   }
   const num = JSON.parse(numObj)
+  const now = new Date()
+  if (now.getTime() > num.expiry) {
+    localStorage.removeItem('num_products')
+    return null
+  }
   return num.num
 }
 
@@ -36,8 +42,6 @@ export function getItemsInLocalStorage () {
   const now = new Date()
   // compare the expiry time of the item with the current time
   if (now.getTime() > item.expiry) {
-    // If the item is expired, delete the item from storage
-    // and return null
     localStorage.removeItem('items')
     return null
   }
