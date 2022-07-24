@@ -26,7 +26,6 @@ function ListView ({ itemList }) {
         )}
       </div>
     </div>
-
   )
 }
 

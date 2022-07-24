@@ -1,6 +1,6 @@
 const host = 'https://front-test-api.herokuapp.com/'
 
-export const getItemsFromAPI = async (user) => {
+export const getItemsFromAPI = async () => {
   const url = new URL('/api/product', host)
   const response = await fetch(url)
   return await response.json()
